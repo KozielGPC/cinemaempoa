@@ -189,7 +189,7 @@ def create():
             valid_dates.append(f"{parsed_date.date()}T{str(parsed_date.time())[0:5]}")
         except ValueError:
             pass
-    if "ADMIN" in g.user.roles: 
+    if "ADMIN" in g.user.roles:
         return render_template(
             "screening/create.html",
             cinemas=cinemas,
@@ -198,10 +198,11 @@ def create():
             max_year=max_year,
             max_file_size=current_app.config["MAX_CONTENT_LENGTH"],
         )
-    else: 
+    else:
         return render_template(
             "auth/forbidden.html",
         )
+
 
 @bp.route("/screening/<int:id>/publish", methods=("POST",))
 @login_required
@@ -417,13 +418,12 @@ def import_screenings():
 
         flash(f"«{created_features}» sessões criadas com sucesso!", "success")
 
-    if "ADMIN" in g.user.roles: 
+    if "ADMIN" in g.user.roles:
         return render_template("screening/import.html", suggestions=suggestions)
-    else: 
+    else:
         return render_template(
             "auth/forbidden.html",
         )
-    
 
 
 @bp.route("/screening/image/describe", methods=("POST",))
