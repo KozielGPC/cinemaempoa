@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
 {% block content %}
-
+    {# djlint:off #}
 <div class="d-flex flex-column justify-content-center align-items-center"  style="height: 50vh; width: auto;">
-    <div class="d-flex flex-column align-items-center" >
+    {# djlint:on #}
+    <div class="d-flex flex-column align-items-center">
         <h1>
             {% block title %}
-            Acesso Negado
+                Acesso Negado
             {% endblock title %}
         </h1>
         <p>Você não tem as permissões necessárias para acessar esta página.</p>
